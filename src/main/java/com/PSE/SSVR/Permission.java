@@ -1,9 +1,9 @@
 package com.PSE.SSVR;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 
@@ -13,12 +13,15 @@ public class Permission {
     private Long id;
     private String name ;
 
-    public Permission() {
-    }
+    @ManyToMany(mappedBy = "permissions")
+    private Set<Role> roles = new HashSet<>();
 
-    public Permission(Long id, String name) {
+    public Permission() {}
+
+    public Permission(Long id, String name, Set<Role> roles) {
         this.id = id;
         this.name = name;
+        this.roles = roles;
     }
 
     public Long getId() {
@@ -35,5 +38,13 @@ public class Permission {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
