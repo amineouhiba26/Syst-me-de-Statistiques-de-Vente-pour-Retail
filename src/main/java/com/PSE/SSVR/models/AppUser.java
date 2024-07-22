@@ -1,4 +1,4 @@
-package com.PSE.SSVR;
+package com.PSE.SSVR.auth;
 
 
 import jakarta.persistence.Entity;
@@ -49,4 +49,12 @@ public class AppUser {
     public void setRole(String role) {
         this.role = role;
     }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
 }

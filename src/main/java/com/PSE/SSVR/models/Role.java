@@ -1,7 +1,6 @@
-package com.PSE.SSVR;
+package com.PSE.SSVR.auth;
 
 import jakarta.persistence.*;
-import org.apache.catalina.User;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,4 +21,5 @@ public class Role {
 
     @OneToMany(mappedBy = "role")
     private Set<AppUser> users = new HashSet<>();
+
 }

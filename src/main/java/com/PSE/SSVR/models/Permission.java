@@ -1,4 +1,4 @@
-package com.PSE.SSVR;
+package com.PSE.SSVR.auth;
 
 import jakarta.persistence.*;
 
