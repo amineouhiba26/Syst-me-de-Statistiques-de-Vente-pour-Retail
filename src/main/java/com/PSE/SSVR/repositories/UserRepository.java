@@ -1,5 +1,6 @@
-package com.PSE.SSVR.auth;
+package com.PSE.SSVR.repositories;
 
+import com.PSE.SSVR.models.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<AppUser,

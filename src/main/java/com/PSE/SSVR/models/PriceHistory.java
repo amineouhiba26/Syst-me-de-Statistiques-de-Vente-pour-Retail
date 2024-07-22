@@ -1,9 +1,6 @@
-package com.PSE.SSVR.prods;
+package com.PSE.SSVR.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -14,18 +11,23 @@ public class PriceHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
-    private Product product ;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
+    private double price;
+
     private int oldPrice ;
     private int newPrice ;
     private Date changeDate ;
 
-    public PricehiStory() {}
+    public PriceHistory() {}
 
-    public PricehiStory(int id, Product product,
+    public PriceHistory(int id, Product product,
                         int oldPrice,int newPrice,
                         Date changeDate) {
+        this.product=product;
         this.id = id;
-        this.product = product;
         this.oldPrice = oldPrice;
         this.newPrice = newPrice;
         this.changeDate = changeDate;
@@ -38,14 +40,10 @@ public class PriceHistory {
     public void setId(int id) {
         this.id = id;
     }
-
     public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 
     public int getOldPrice() {
         return oldPrice;

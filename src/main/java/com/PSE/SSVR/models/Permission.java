@@ -1,4 +1,4 @@
-package com.PSE.SSVR.auth;
+package com.PSE.SSVR.models;
 
 import jakarta.persistence.*;
 
